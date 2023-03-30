@@ -12,8 +12,10 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
+
     public void showExternalWebPage(){
-        // TODO: Add your code for showing external web page here
+
+
     }
 
     public void showInternalWebPage(){
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         myWebView = findViewById(R.id.my_webview);
         myWebView.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
         myWebView.loadUrl("https://his.se");
+        myWebView.getSettings().setJavaScriptEnabled(true);
 
         /*
         * Rename your App. Tip: Values->Strings
@@ -72,8 +75,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_external_web) {
+        if (id == R.id.my_webview) {
             Log.d("==>","Will display external web page");
+            showExternalWebPage();
             return true;
         }
 
